@@ -6,17 +6,22 @@ serverSocket = socket(AF_INET, SOCK_STREAM)
 #Prepare a sever socket
 #Write your code here
 
+serverPort=6789
+serverSocket.bind(('', serverPort))
+serverSocket.listen(1)
+
 #End of your code
 while True:
 	#Establish the connection print('Ready to serve...') connectionSocket, addr = 
 	try:
 		#Write your code here
-
+		print('ready')
+		connectionSocket, address=serverSocket.accept()
 		#End of your code
-		message = #Write your code here #End of your code 
+		message=connectionSocket.recv(1024)
 		filename = message.split()[1]
 		f = open(filename[1:])
-		outputdata = #Write your code here #End of your code 
+		outputdata = f.read()
 
 		#Send one HTTP header line into socket
 		#Write your code here

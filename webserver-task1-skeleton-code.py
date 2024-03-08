@@ -20,26 +20,27 @@ while True:
 
 		#Send one HTTP header line into socket
 		#Write your code here
-
+		connectionSocket.send("HTTP/1.1 200 OK\r\n\r\n")
 		#End of your code
 
 		#Send the content of the requested file to the client 
 		for i in range(0, len(outputdata)):
 			connectionSocket.send(outputdata[i].encode()) 
-		connectionSocket.send("\r\n".encode())
-		connectionSocket.close()
+			connectionSocket.send("\r\n".encode())
+			connectionSocket.close()
 
 
 	except IOError:
 		#Send response message for file not found
     	#Write your code here
-
+		connectionSocket.send("HTTP/1.1 404 Not Found\r\n\r\n")
     	#End of your code
-		
+		connectionSocket.send("<html><head></head><body><h1>404 Not Found</h1></body></html>\r\n")
+  
 		#Close client socket
         
         #Write your code here
-		
+		connectionSocket.close()
 		#End of your code
-serverSocket.close()
-sys.exit()#Terminate the program after sending the corresponding data
+	serverSocket.close()
+	sys.exit()#Terminate the program after sending the corresponding data

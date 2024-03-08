@@ -1,3 +1,9 @@
-import requests
+from socket import *
+import sys
 
-r=request.get
+def request(host, port):
+    http_client =socket(AF_INET, SOCK_STREAM) 
+    http_client.connect((host,port))
+    http_client.send(b"GET / HTTP/1.1\r\nHost: " + host.encode() + b"\r\n\r\n")
+    
+    response -http_client()

@@ -1,10 +1,15 @@
-from http.client import responses
-from socket import *
 import sys
+from socket import *
 
-def request(host, port):
-    http_client =socket(AF_INET, SOCK_STREAM) 
-    http_client.connect((host,port))
-    http_client.send(b"GET / HTTP/1.1\r\nHost: " + host.encode() + b"\r\n\r\n")
+#Client initiates a connection
+HOST = "127.0.0.1"
+PORT = 65432
+
+with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
     
-    responses -http_client()
+    #Data exhange
+    s.sendall(b"hello world")
+    data =s.recv(1024)
+    
+print(f"recieved{data}")

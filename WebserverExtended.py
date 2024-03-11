@@ -1,9 +1,9 @@
 import sys
 from socket import *
-import thread
+import threading
 
 
-def handle_client(connectionSocket):
+def client_handle(connectionSocket):
     try:
         #Receive HTTP requests 
         message = connectionSocket.recv(1024)
@@ -32,13 +32,12 @@ serverSocket.bind(('', serverPort))
 serverSocket.listen(1)
 print('Server is ready to receive')
 
-while True:
-    connectionSocket,addr =serverSocket.accept()
-    
-    #Starts a new thread to handle requests
-    thread.start_new_thread(handle_client,(connectionSocket,))
-    
-    
+try:
+    while True:
+        connectionSocket,addr =serverSocket.accept()
+        #Starts a new thread to handle requests
+        threading.Thread(target=client_handle, args =(connectionSocket,)).start()
+finally:
     #Close the server socket
-    # 
     serverSocket.close()
+   

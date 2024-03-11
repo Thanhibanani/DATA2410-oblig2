@@ -7,3 +7,9 @@ I have written code where It is supposed to be.
 Task2: 
 -Written own HTTP client to test server.
 Used terminal and written following command: python 
+
+Task3:
+Made a client to test the server
+
+Task4:
+Using import threading to handle client multiple HTTP requests

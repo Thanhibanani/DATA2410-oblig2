@@ -1,5 +1,5 @@
 import sys
-from socket import *
+import socket
 
 def http_request(server_ip, port, path):
     #Client initiates a HTTP request
@@ -24,11 +24,11 @@ def http_request(server_ip, port, path):
 
 if __name__=="__main__":
     if len(sys.argv) !=4:
-        print("Usage: python http_client.py <server_ip> <port> <path>")
+        print("Usage: python client.py <server_ip> <port> <path>")
         sys.exit(1)
     server_ip=sys.argv[1]
     port =int(sys.argv[2])
     path=sys.argv[3]
     
-http_request(server_ip,port,path)
+http_request(server_ip, port, path)
 

@@ -40,4 +40,6 @@ try:
 finally:
     #Close the server socket
     serverSocket.close()
+    #Terminate the program.
+    sys.exit()
    

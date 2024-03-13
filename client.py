@@ -22,9 +22,8 @@ def http_request(server_ip, port, path):
                 if not data:
                     break
                 response += data
-                
-                #Displays the respons
-                print(response.decode())
+            return response
+                #Displays the response
         except Exception as e:
             print(f"Error!: {e}")
 
@@ -36,6 +35,13 @@ if __name__=="__main__":
     server_ip=sys.argv[1]
     port =int(sys.argv[2])
     path=sys.argv[3]
+    
+    #define response 
+    response=http_request(server_ip, port, path)
+    
+    #display the response
+    if response:
+        print(response.decode())
     
 http_request(server_ip, port, path)
 

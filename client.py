@@ -1,6 +1,9 @@
+#This is a simple client program to test webserver
+
 import sys
 import socket
 
+#function to handle http request
 def http_request(server_ip, port, path):
     #Client initiates a HTTP request
     request=f"GET {path} HTTP/1.1\r\nHost: {server_ip}\r\nConnection: close\r\n\r\n"

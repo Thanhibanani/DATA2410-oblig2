@@ -1,4 +1,4 @@
-# import socket module
+# import socket module which accesses the BSD socket interface.
 from socket import *
 import sys  # In order to terminate the program
 serverSocket = socket(AF_INET, SOCK_STREAM)

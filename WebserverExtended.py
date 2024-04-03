@@ -1,8 +1,13 @@
+#This is a simple multi-threading webserver
+#Uses threading module to handle multiple requests
 import sys
 from socket import *
+
+#This import handles multiple client connections
 import threading
 
 
+#This is a function to handle multiple clients
 def client_handle(connectionSocket):
     try:
         #Receive HTTP requests 

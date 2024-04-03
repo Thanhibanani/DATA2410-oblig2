@@ -1,6 +1,6 @@
 #This is a simple client program to test webserver
-
-import sys
+import sys #Terminate the program
+# import socket module which accesses the BSD socket interface.
 import socket
 
 #function to handle http request

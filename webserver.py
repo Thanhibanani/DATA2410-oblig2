@@ -3,7 +3,7 @@ from socket import *
 import sys  # In order to terminate the program
 serverSocket = socket(AF_INET, SOCK_STREAM)
 
-# Prepare a sever socket
+# Prepare a server socket
 # Write your code here
 serverPort = 8000
 serverSocket.bind(('', serverPort))

@@ -32,7 +32,7 @@ def client_handle(connectionSocket):
         # Close client socket
         connectionSocket.close()
 serverSocket =socket(AF_INET, SOCK_STREAM)
-serverPort = 6789
+serverPort = 8000
 serverSocket.bind(('', serverPort))
 serverSocket.listen(1)
 print('Server is ready to receive')
